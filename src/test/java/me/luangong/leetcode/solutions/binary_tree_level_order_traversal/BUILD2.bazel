@@ -1,0 +1,5 @@
+load("//:defs.bzl", "my_java_solution_test_suite")
+
+my_java_solution_test_suite(
+    deps = ["//src/main/java/me/luangong/leetcode/common/binary_tree"],
+)

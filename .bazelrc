@@ -1,0 +1,19 @@
+# Enable bzlmod
+# https://bazel.build/external/overview
+common --enable_bzlmod
+
+# LeetCode uses JDK 17 to compile and run submitted code
+# https://support.leetcode.com/hc/en-us/articles/360011833974-What-are-the-environments-for-the-programming-languages-
+build  --java_language_version=17
+run    --java_runtime_version=remotejdk_17
+
+# Don't show progress message during CI builds
+build:ci --noshow_progress
+
+# Remote caching
+# https://app.buildbuddy.io/docs/setup/
+build:ci --bes_results_url=<https://app.buildbuddy.io/invocation/>
+build:ci --bes_backend=grpcs://remote.buildbuddy.io
+build:ci --remote_cache=grpcs://remote.buildbuddy.io
+build:ci --experimental_remote_cache_compression
+build:ci --remote_timeout=3600

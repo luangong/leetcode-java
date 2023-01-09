@@ -1,0 +1,45 @@
+load("@contrib_rules_jvm//java:defs.bzl", "java_test_suite")
+load("//:defs.bzl", "java_solutions_libraries", "java_solutions_test_suite")
+
+exports_files(glob(["src/test/resources/*.yml"]))
+
+java_library(
+    name = "common",
+    srcs = glob(["src/main/java/me/luangong/leetcode/common/**/*.java"]),
+)
+
+java_solutions_libraries(
+    name = "solutions",
+    srcs = glob(["src/main/java/me/luangong/leetcode/solutions/**/*.java"]),
+    deps = [":common"],
+)
+
+java_library(
+    name = "test_util",
+    srcs = ["src/test/java/me/luangong/leetcode/util/TestUtil.java"],
+    deps = [
+        "@maven//:com_fasterxml_jackson_core_jackson_databind",
+        "@maven//:com_fasterxml_jackson_dataformat_jackson_dataformat_yaml",
+    ],
+)
+
+java_test_suite(
+    name = "common-tests",
+    size = "small",
+    srcs = glob(["src/test/java/me/luangong/leetcode/common/**/*.java"]),
+    runner = "junit5",
+    deps = [
+        ":common",
+        "@maven//:org_junit_jupiter_junit_jupiter_api",
+        "@maven//:org_junit_jupiter_junit_jupiter_engine",
+        "@maven//:org_junit_jupiter_junit_jupiter_params",
+        "@maven//:org_junit_platform_junit_platform_commons",
+        "@maven//:org_junit_platform_junit_platform_launcher",
+        "@maven//:org_junit_platform_junit_platform_reporting",
+    ],
+)
+
+java_solutions_test_suite(
+    name = "tests",
+    srcs = glob(["src/test/java/me/luangong/leetcode/solutions/**/*.java"]),
+)
