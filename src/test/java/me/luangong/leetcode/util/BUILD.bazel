@@ -1,0 +1,10 @@
+package(default_visibility = ["//visibility:public"])
+
+java_library(
+    name = package_name().split("/")[-1],
+    srcs = glob(["*.java"]),
+    deps = [
+        "@maven//:com_fasterxml_jackson_dataformat_jackson_dataformat_yaml",
+        "@maven//:com_fasterxml_jackson_core_jackson_databind",
+    ],
+)
