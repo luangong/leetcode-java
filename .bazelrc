@@ -1,0 +1,4 @@
+# LeetCode uses JDK 17 to compile and run submitted code
+# https://support.leetcode.com/hc/en-us/articles/360011833974-What-are-the-environments-for-the-programming-languages-
+build --java_language_version=17
+run   --java_runtime_version=remotejdk_17
