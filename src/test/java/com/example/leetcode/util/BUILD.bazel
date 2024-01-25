@@ -1,0 +1,9 @@
+java_library(
+    name = "util",
+    srcs = glob(["*.java"]),
+    deps = [
+        "@mvn//:com_fasterxml_jackson_dataformat_jackson_dataformat_yaml",
+        "@mvn//:com_fasterxml_jackson_core_jackson_databind",
+    ],
+    visibility = ["//src/test/java/com/example/leetcode/solutions:__subpackages__"],
+)

@@ -1,0 +1,5 @@
+load("//:defs.bzl", "java_solution_library")
+
+java_solution_library(
+    deps = ["//src/main/java/com/example/leetcode/common/binary_tree"],
+)

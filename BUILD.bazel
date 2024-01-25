@@ -1,0 +1,33 @@
+# load("@contrib_rules_jvm//java:defs.bzl", "java_test_suite")
+
+exports_files(glob(["src/test/resources/*.yml"]))
+
+# java_library(
+#     name = "common",
+#     srcs = glob(["src/main/java/com/example/leetcode/common/*.java"]),
+# )
+
+# java_library(
+#     name = "test_util",
+#     srcs = ["src/test/java/com/example/leetcode/util/TestUtil.java"],
+#     deps = [
+#         "@mvn//:com_fasterxml_jackson_core_jackson_databind",
+#         "@mvn//:com_fasterxml_jackson_dataformat_jackson_dataformat_yaml",
+#     ],
+# )
+
+# java_test_suite(
+#     name = "common-tests",
+#     size = "small",
+#     srcs = glob(["src/test/java/com/example/leetcode/common/**/*.java"]),
+#     runner = "junit5",
+#     deps = [
+#         ":common",
+#         "@mvn//:org_junit_jupiter_junit_jupiter_api",
+#         "@mvn//:org_junit_jupiter_junit_jupiter_engine",
+#         "@mvn//:org_junit_jupiter_junit_jupiter_params",
+#         "@mvn//:org_junit_platform_junit_platform_commons",
+#         "@mvn//:org_junit_platform_junit_platform_launcher",
+#         "@mvn//:org_junit_platform_junit_platform_reporting",
+#     ],
+# )
